@@ -9,7 +9,20 @@
     <p>Hello Lulu</p>
     <script src="../d3/d3.min.js" charset="utf-8"></script>
     <script>
-        d3.select("body").selectAll("p").text("Use d3 to change text")
+        var p = d3.select("body").selectAll("p").text("Use d3 to change text");
+        /*将选中的元素赋值给变量p，通过变量p改变样式；
+        * 使用d3.select()选择元素后返回的对象，为选择集；
+        * 链式语法*/
+        p.style("color","red").style("font-size","72px");
+
+        /*d3能将数据绑定到DOM上；
+        * 绑定数据常用的函数是data()和datum();*/
+        var set = ["d1","d2"];
+        /*定义数组的两项*/
+        var sp = d3.select("body").selectAll("p");
+        sp.data(set).text(function(d,i){
+            return d;
+        })
     </script>
 </body>
 </html>
