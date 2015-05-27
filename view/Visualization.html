@@ -13,30 +13,36 @@
     <script src="../d3/d3.min.js" charset="utf-8"></script>
     <script>
         var p = d3.select("body").selectAll("p").text("Use d3 to change text");
-        /*将选中的元素赋值给变量p，通过变量p改变样式；
-        * 使用d3.select()选择元素后返回的对象，为选择集；
-        * 链式语法*/
+        //将选中的元素赋值给变量p，通过变量p改变样式；
+        //使用d3.select()选择元素后返回的对象，为选择集；
+        // 链式语法
         p.style("color","red").style("font-size","36px");
 
-        /*d3能将数据绑定到DOM上；
-        * 绑定数据常用的函数是data()和datum();*/
-        var set = ["d1","d2"];/*定义数组的两项*/
-        var sp = d3.select("body").selectAll("p");/*选择body里的所有p元素，将选择集赋值给变量sp*/
+        //d3能将数据绑定到DOM上；
+        //绑定数据常用的函数是data()和datum();
+        var set = ["d1","d2"];//定义数组的两项
+        var sp = d3.select("body").selectAll("p");//选择body里的所有p元素，将选择集赋值给变量sp
         sp.data(set).text(function(d,i){
             return d;
-        })/*使用data()绑定数组set；更改段落元素内容：无名函数fuction，参数d为datum，i为index（索引），当i==0，d为d1，当i==1，d为d3，两个p和set的字符串一一对应；若将所有段落变为相同字符串，只需要sp.text(")*/
+        })//使用data()绑定数组set；更改段落元素内容：无名函数fuction，参数d为datum，i为index（索引），当i==0，d为d1，当i==1，d为d3，两个p和set的字符串一一对应；若将所有段落变为相同字符串，只需要sp.text(")
 
-        /*选择第一个h1和选择两个h1的方法*/
+        //选择第一个h1和选择两个h1的方法
         var body = d3.select("body");
         var h1 = body.select("h1");
         h1.style("color","red");
         var all_h1 = body.selectAll('h1');
 
-        /*选择非第一个元素，两种方法*/
+        //选择非第一个元素，两种方法
         var h1_2 = d3.select("h1_2");
-        h1_2.style("color","blue");
-        var set = ["h1 data1",'h1 data2','h1 data3'];
-        
+        h1_2.style("color","blue");//如果绑定数据，在fuction里操作
+
+        var new_h1 = body.append("h1");
+        new_h1.text("append new h1");
+//        删除元素 new_h1.remove()
+
+
+
+
 
 
     </script>
