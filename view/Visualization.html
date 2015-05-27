@@ -17,12 +17,13 @@
 
         /*d3能将数据绑定到DOM上；
         * 绑定数据常用的函数是data()和datum();*/
-        var set = ["d1","d2"];
-        /*定义数组的两项*/
-        var sp = d3.select("body").selectAll("p");
+        var set = ["d1","d2"];/*定义数组的两项*/
+        var sp = d3.select("body").selectAll("p");/*选择body里的所有p元素，将选择集赋值给变量sp*/
         sp.data(set).text(function(d,i){
             return d;
-        })
+        })/*使用data()绑定数组set；更改段落元素内容：无名函数fuction，参数d为datum，i为index（索引），当i==0，d为d1，当i==1，d为d3，两个p和set的字符串一一对应；若将所有段落变为相同字符串，只需要sp.text(")*/
+
+        
     </script>
 </body>
 </html>
